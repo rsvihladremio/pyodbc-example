@@ -3,6 +3,12 @@
 quick and dirty example of how to get pyodbc working with dremio andthe M1 mac
 
 
+## Why
+
+The dremio ODBC driver 1.5.x is only compiled for x86_64 and x86 architectures, this means if you are using Python compiled for arm64 architecture (the default) then the ODBC driver cannot work, you will receive an error like `Dremio ODBC’ : file not found (0)`.
+
+The fix is to install a rosetta for mac, and x86_64 version of homebrew, then through homebrew install python and unixodbc. Finally you have to symlink to the newly installed homebrew to make it all happy
+
 ## do the following steps
 
 ```sh
