@@ -12,6 +12,10 @@ The fix is to install a rosetta for mac, and x86_64 version of homebrew, then th
 ## do the following steps
 
 ```sh
+
+# add the following line to /Library/Dremio/ODBC/lib/dremio.drillodbc.ini
+# ODBCInstLib=/usr/local/homebrew/opt/unixodbc/lib/libodbcinst.2.dylib
+
 echo "installing rosetta"
 /usr/sbin/softwareupdate --install-rosetta
 echo "installing x86_64 architecture homebrew"
@@ -22,6 +26,8 @@ sudo mv homebrew /usr/local/homebrew
 echo "install python x86_64 and unixodbc x86_64
 arch -x86_64 /usr/local/homebrew/bin/brew install python unixodbc
 
+
+
 echo "setting up virtual env for new python"
 /usr/local/homebrew/bin/python3 -m venv venv
 echo "install pyodbc"
@@ -29,6 +35,4 @@ echo "install pyodbc"
 echo "running main.py script make sure to update port, host and username and password" 
 ./venv/bin/python main.py
 
-# also add the following line to /Library/Dremio/ODBC/lib/dremio.drillodbc.ini
-# ODBCInstLib=/usr/local/homebrew/opt/unixodbc/lib/libodbcinst.2.dylib
 ```
